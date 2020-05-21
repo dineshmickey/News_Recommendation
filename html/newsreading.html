@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Recommendation</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.2.45/css/materialdesignicons.css">
+
+</head>
+
+<body id="newsreading">
+    <div class="banner-wrapper  n-flex align-center justify-center">
+        <div class="back-btn" title="Back">
+            <i class="mdi mdi-arrow-left"></i>
+        </div>
+        <div class="banner-wrapper-con">
+            <div class="news-rec-header">
+                News Recommendation
+            </div>
+            <div class="news-rec-desc">
+                Reading the news online has exploded as the web provides access to millions of news sources from around
+                the world. The
+                sheer volume of articles can be overwhelming to readers. Therefore, building a news recommendation
+                system to help users
+                find articles that are most interesting to them is a crucial task for every online news service.
+            </div>
+        </div>
+    </div>
+    <div class="news-reading">
+        <div class="news-reading-con" id="newsrender">
+
+        </div>
+        <div class="news-reading-con news-body">
+            <h3> NEWS RECOMMENDATION FOR YOU </h3>
+            <div class="cards" id="cards">
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<script src="../js/commonscripts.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script>
+
+    $(document).ready(() => {
+        const rendernews = JSON.parse(localStorage.getItem('currentnews'));
+
+        $("#newsrender").append(
+            `<div class="news-reading-header">
+                        ${rendernews.title}
+            </div>
+            <div class="news-reading-content">
+                       ${rendernews.news}     
+            </div>
+            `
+        )
+        $.ajax({
+            url: "http://ec2-18-221-127-76.us-east-2.compute.amazonaws.com:8080/recomendation/" + rendernews.id,
+            type: "get", // request method
+            crossDomain: true,
+            success: function (response) {
+                store = response;
+                response.forEach((news, index) => {
+                    $("#cards").append(
+                        `<div class="card" id="${index}">
+                        <div class="news-title-info">
+                            <div class="n-icon">
+                                <i class="mdi mdi-gesture-tap"></i>
+                            </div>
+                            <div class="news-title">${news.title}</div>
+                        </div>
+                    </div>`
+                    )
+                });
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+    $(document).on("click", ".card", function () {
+        localStorage.setItem('currentnews', JSON.stringify(store[this.id]));
+        window.location.href = './newsreading.html'
+    })
+    $(document).on("click", ".back-btn", function () {
+        window.location.href = 'index.html'
+    })
+
+</script>
+
+</html>

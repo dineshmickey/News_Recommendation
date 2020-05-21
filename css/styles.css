@@ -1,0 +1,151 @@
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    margin: 0;
+}
+.n-flex{
+    display: flex  !important;
+}
+.n-wrap{
+    flex-wrap: wrap;
+}
+.n-row{
+    display: flex;
+}
+.align-center{
+align-items: center;
+}
+.justify-center{
+    justify-content: center;
+}
+.banner-wrapper {
+    height: 400px;
+    background: #ce1c1ceb;
+}
+.news-rec-header {
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px;
+}
+.news-rec-desc {
+    font-size: 20px;
+    text-align: center;
+    font-style: italic;
+    line-height: 40px;
+}
+.news-info-header-con{
+    width: 50%;
+}
+.news-rec-subheader {
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px;
+}
+.news-rec-subdesc {
+    font-size: 18px;
+    text-align: center;
+    font-style: italic;
+    line-height: 30px;
+}
+.banner-wrapper-con {
+    width: 70%;
+}
+.news-info {
+    background: #000000ba;
+    padding: 40px 0px;
+}
+
+.cards{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.card{
+    width: 25%;
+    padding: 20px;
+    
+}
+.card>div {
+    cursor: pointer;
+    height: 200px;
+    border-radius: 4px;
+    text-align: center;
+    padding: 10px;
+    background: #ffffffad;
+    /* box-shadow: 3px 0px 6px 1px #d4d4d4; */
+}
+.news-info-header {
+    color: #b9b9b9;
+}
+.news-body {
+    padding-top: 40px;
+}
+.news-title {
+    color: #000000a1;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+}
+.n-icon {
+    color: #de5c5c;
+    font-size: 100px;
+}
+
+.news-reading-content {
+    text-indent: 40px;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: justify;
+}
+.news-reading-header {
+    font-size: 33px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.news-reading-con {
+
+    padding: 50px;
+    background: #000000b5;
+    color: white;
+
+}
+.news-reading {
+    padding: 100px;
+}
+#newslist{
+    background-image: url(../img/newspaper.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+        background-size: cover;
+}
+#newsreading{
+    background-image: url(../img/readingnews.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+        background-size: cover;
+}
+.card:hover{
+    box-shadow: 1px 1px 1px 1px #d45959;
+}
+.back-btn {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    background: white;
+    font-size: 22px;
+    cursor: pointer;
+}
+::-webkit-scrollbar{
+    width: 5px;
+}
+::-webkit-scrollbar-thumb{
+    background: #000000eb;
+}
